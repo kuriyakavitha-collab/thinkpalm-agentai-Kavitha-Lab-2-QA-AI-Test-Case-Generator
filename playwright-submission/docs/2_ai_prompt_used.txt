@@ -1,0 +1,15 @@
+Prompt used to generate Playwright tests (sent to ChatGPT / Claude):
+
+"You are an AI that generates Playwright test code from a feature description.
+
+Feature: Demo App Login
+
+Write five Playwright tests in JavaScript using @playwright/test that cover these scenarios:
+- successful login with valid credentials (tomsmith / SuperSecretPassword!)
+- login fails with incorrect password
+- login fails with empty credentials
+- SQL injection attempt is rejected
+- logged-in user can logout and return to the login page
+
+Use the demo test site: https://the-internet.herokuapp.com/login
+Make the tests clear, self-contained, and resilient (use locators and explicit checks). Put all tests in a single file `tests/login.spec.js`. Don't add external test data files. Use `expect` assertions for messages and URLs."

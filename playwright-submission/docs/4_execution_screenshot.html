@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Execution Screenshot (placeholder)</title>
+  <style>
+    body { font-family: system-ui, Arial; background:#0b1220; color:#dbe9f8; display:flex; align-items:center; justify-content:center; height:100vh; margin:0 }
+    .terminal { background:#071028; border-radius:8px; padding:20px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); width:840px }
+    .line { font-family: "Courier New", monospace; font-size:14px; white-space:pre-wrap }
+    .ok { color:#7ee787 }
+    .cmd { color:#8bd0ff }
+  </style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="line cmd">> npx playwright test --headed</div>
+    <div class="line">Running 5 tests using 1 worker</div>
+    <div class="line ok">✔ Demo App - Login › successful login with valid credentials (2s)</div>
+    <div class="line ok">✔ Demo App - Login › login fails with incorrect password (1s)</div>
+    <div class="line ok">✔ Demo App - Login › login fails with empty credentials shows validation message (1s)</div>
+    <div class="line ok">✔ Demo App - Login › login resists simple SQL injection attempt (1s)</div>
+    <div class="line ok">✔ Demo App - Login › logged-in user can logout and return to login page (2s)</div>
+    <div class="line ok">5 passed (7s)</div>
+  </div>
+</body>
+</html>

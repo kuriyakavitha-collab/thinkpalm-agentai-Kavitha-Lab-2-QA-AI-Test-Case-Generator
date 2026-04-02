@@ -1,0 +1,12 @@
+{
+  "name": "playwright-submission",
+  "version": "1.0.0",
+  "description": "Playwright test submission package (login tests generated with AI)",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}

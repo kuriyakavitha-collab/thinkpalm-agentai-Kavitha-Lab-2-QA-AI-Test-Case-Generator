@@ -1,0 +1,43 @@
+How to run these Playwright tests (Windows PowerShell and bash examples)
+
+Prerequisites:
+- Node.js (14+ recommended) and npm installed
+- Internet access (tests run against https://the-internet.herokuapp.com)
+
+Steps (PowerShell):
+1) Open PowerShell in the folder that contains `playwright-submission` (the parent folder). For example:
+   cd "c:\Users\kavitha.k\OneDrive - Thinkpalm Technologies Ltd\Kavitha\Thinkpalm-Lab 2 (QA) — AI Test Case Generator"
+
+2) Install npm dependencies:
+   npm install
+
+3) Install Playwright browsers (required once):
+   npx playwright install
+
+4) Run tests (headed mode to see the browser):
+   npx playwright test --headed
+
+5) Or run the npm script (uses the local npx):
+   npm run test:headed
+
+Notes and troubleshooting:
+- If you see permission or network issues while installing browsers, run PowerShell as Administrator or ensure your network/firewall allows downloads.
+- To run headless (no UI): `npx playwright test` or `npm test`.
+- The tests target https://the-internet.herokuapp.com/login which is a public demo site. If the site is down, tests will fail.
+
+To create a ZIP (PowerShell):
+- From the parent folder (where `playwright-submission` is located):
+  Compress-Archive -Path .\playwright-submission\* -DestinationPath .\playwright-submission.zip
+
+To unzip on Windows:
+- Right-click the ZIP and choose "Extract All..." or use Expand-Archive in PowerShell:
+  Expand-Archive -LiteralPath .\playwright-submission.zip -DestinationPath .\extracted-playwright-submission
+
+Bash (Linux / macOS) equivalents:
+- npm install
+- npx playwright install
+- npx playwright test --headed
+- zip -r playwright-submission.zip playwright-submission/
+
+Expected result:
+- A browser opens and the 5 tests run; terminal shows passes (if the demo site is available) and an HTML report is created in `playwright-report` (use `npx playwright show-report` to open it).

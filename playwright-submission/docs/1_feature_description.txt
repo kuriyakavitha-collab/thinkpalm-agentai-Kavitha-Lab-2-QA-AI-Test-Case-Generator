@@ -1,0 +1,32 @@
+Feature: Demo App Login
+
+Background:
+  The application is a simple demo login page (https://the-internet.herokuapp.com/login).
+  The page contains username and password inputs and a login button. After successful login the user is redirected to a secure area (/secure) with a success message. Failed logins show an error flash message.
+
+Acceptance Criteria / Scenarios:
+
+1) Successful login
+  Given valid credentials (username: tomsmith, password: SuperSecretPassword!)
+  When the user submits the form
+  Then the user is redirected to /secure and sees "You logged into a secure area!"
+
+2) Invalid password
+  Given an existing username and wrong password
+  When the user submits the form
+  Then the user sees "Your password is invalid!" and remains on the login page
+
+3) Empty credentials
+  Given both username and password are empty
+  When the user submits the form
+  Then the user is shown a validation/invalid credentials message
+
+4) SQL injection attempt
+  Given a malicious SQL-like value is submitted
+  When the user submits the form
+  Then the login attempt is rejected and an invalid credentials message is shown
+
+5) Logout
+  Given the user has successfully logged in
+  When the user clicks Logout
+  Then the user is returned to the login page and sees "You logged out of the secure area!"

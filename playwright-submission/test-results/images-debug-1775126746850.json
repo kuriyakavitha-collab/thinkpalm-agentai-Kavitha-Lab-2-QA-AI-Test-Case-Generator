@@ -1,0 +1,16 @@
+{
+  "page": "https://the-internet.herokuapp.com/",
+  "timestamp": "2026-04-02T10:45:46.845Z",
+  "imageRequests": [
+    "https://the-internet.herokuapp.com/img/forkme_right_green_007200.png"
+  ],
+  "imgs": [
+    {
+      "src": "/img/forkme_right_green_007200.png",
+      "loading": null,
+      "naturalWidth": 149,
+      "naturalHeight": 149
+    }
+  ],
+  "failedResources": []
+}
