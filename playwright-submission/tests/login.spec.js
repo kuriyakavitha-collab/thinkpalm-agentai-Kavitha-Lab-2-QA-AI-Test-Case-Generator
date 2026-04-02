@@ -1,9 +1,13 @@
 const { test, expect } = require('@playwright/test');
+const fs = require('fs');
+const path = require('path');
 
 // Tests generated from the feature description (docs/1_feature_description.txt)
 // Using the demo site: https://the-internet.herokuapp.com/login
 
 const BASE = 'https://the-internet.herokuapp.com/login';
+const SCREENSHOT_DIR = path.join(__dirname, '..', 'test-results', 'screenshots');
+if (!fs.existsSync(SCREENSHOT_DIR)) fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
 
 test.describe('Demo App - Login', () => {
   test.beforeEach(async ({ page }) => {
@@ -12,9 +16,14 @@ test.describe('Demo App - Login', () => {
 
   // Pause after each test to make the UI visible for manual observation.
   // Use the SLOW_MS environment variable to control this value (milliseconds).
-  test.afterEach(async ({ page }) => {
+  test.afterEach(async ({ page }, testInfo) => {
     const ms = Number(process.env.SLOW_MS) || 1500;
     await page.waitForTimeout(ms);
+
+    const safeTitle = testInfo.title.replace(/[^a-z0-9_-]/gi, '_');
+    const screenshotPath = path.join(SCREENSHOT_DIR, `${safeTitle}-${Date.now()}.png`);
+    await page.screenshot({ path: screenshotPath, fullPage: true });
+    console.log('[screenshot] ', screenshotPath);
   });
 
   test('successful login with valid credentials', async ({ page }) => {
